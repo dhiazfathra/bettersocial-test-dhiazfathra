@@ -67,7 +67,7 @@ describe('UsersService', () => {
       try {
         await usersService.createAccount(createAccountArgs);
       } catch (e) {
-        expect(e.message).toBe(`Username ${createAccountArgs.username} is already in use.`);
+        expect(e.message).toBe(`${createAccountArgs.username} is already in use.`);
       }
     });
 

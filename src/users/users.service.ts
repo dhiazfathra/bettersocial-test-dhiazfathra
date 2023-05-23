@@ -20,7 +20,7 @@ export class UsersService {
     const { username } = createAccountInput;
 
     const exists = await this.usersRepository.findOne({ username });
-    if (exists) throw new Error(`Username ${username} is already in use.`);
+    if (exists) throw new Error(`${username} is already in use.`);
 
     const user = await this.usersRepository.create({ ...createAccountInput });
     await this.usersRepository.save(user);
