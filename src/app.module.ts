@@ -9,6 +9,7 @@ import { JwtModule } from './jwt/jwt.module';
 import { AuthModule } from './auth/auth.module';
 import { Verification } from './users/entities/verification.entity';
 import { ScheduleModule } from '@nestjs/schedule';
+import { AwsModule } from './aws/aws.module';
 
 @Module({
   imports: [
@@ -24,6 +25,8 @@ import { ScheduleModule } from '@nestjs/schedule';
         DB_PASSWORD: Joi.string(),
         DB_NAME: Joi.string(),
         JWT_SECRET: Joi.string().required(),
+        AWS_KEY: Joi.string().required(),
+        AWS_SECRET: Joi.string().required(),
       }),
     }),
 
@@ -56,6 +59,7 @@ import { ScheduleModule } from '@nestjs/schedule';
     }),
     AuthModule,
     UsersModule,
+    AwsModule,
   ],
   controllers: [],
   providers: [],
